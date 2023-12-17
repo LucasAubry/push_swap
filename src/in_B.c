@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 00:47:11 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/17 18:04:53 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,9 @@ void transit_b(t_list *stack_a, t_list *stack_b)
 {
 	size_t max;
 	size_t i;
-
 	max = find_max_size(stack_a);
 	i = find_size_stack(stack_a);
-	while(i > 3)
+	while(i > 2)
 	{
 		if(stack_a->content == max)
 			stack_a = stack_a->next;

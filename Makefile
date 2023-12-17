@@ -1,7 +1,7 @@
 CC =		cc
-CFLAGS	=	-Wall -Wextra -Werror -Iinclude
+CFLAGS	=	-Wall -Wextra -Werror -Iinclude -g
 
-LIB = libft.a
+LIB = lib/libft.a
 LFLAGS = -Llib -lft
 
 FILES = push_swap \
@@ -20,7 +20,7 @@ NAME = push_swap
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(LIB) $(OBJS)
-		$(CC) -o $@ $(OBJS) $(LFLAGS)
+		$(CC) $(CFLAGS) -o $@ $(OBJS) $(LFLAGS) $(LIB)
 
 $(LIB):
 	make -C lib

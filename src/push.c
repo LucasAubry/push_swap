@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:37 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/15 16:15:11 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/17 18:01:40 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void push (t_list **head_a, t_list **head_b, char name)
 {
-	if (!*head_b)
+	if (!(*head_a))
 		return ;
+	if (!(*head_b))
+		ft_lstadd_back(head_b, *head_a);
 	ft_lstadd_front(head_a, *head_b);
-	*head_b = (*head_b)->next;
+	*head_a = (*head_a)->next;
 	ft_printf("p%c\n", name);
 }
 
@@ -29,5 +31,3 @@ pour que ca print pa ou pb
 ft_lstadd_front 
 c une fonction qui cree un nouveaux maillon au debut 
 de ma list chaiee*/
-
-
