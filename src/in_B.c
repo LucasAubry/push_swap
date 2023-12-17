@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 18:04:53 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/17 18:52:48 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,19 @@ int find_size_stack(t_list *stack)
 }
 
 //push dans b tout sauf le max 
-void transit_b(t_list *stack_a, t_list *stack_b)
+void transit_b(t_list **stack_a, t_list *stack_b)
 {
 	size_t max;
 	size_t i;
-	max = find_max_size(stack_a);
-	i = find_size_stack(stack_a);
-	while(i > 2)
+	max = find_max_size(*stack_a);
+	i = find_size_stack(*stack_a);
+	while(i > 3)
 	{
-		if(stack_a->content == max)
-			stack_a = stack_a->next;
-		push(&stack_a, &stack_b, 'b');
+		if((*stack_a)->content == max)
+			*stack_a = (*stack_a)->next;
+		push(stack_a, &stack_b, 'b');
 		i--;
-		stack_a = stack_a->next;
+		*stack_a = (*stack_a)->next;
 	}
 }
 
