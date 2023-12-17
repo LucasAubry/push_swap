@@ -6,17 +6,17 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:47 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/06 17:16:27 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/11 15:47:42 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*chaine;
 
-	chaine = malloc(sizeof(t_list));
+	chaine = malloc(sizeof(t_old_list));
 	if (!chaine)
 		return (NULL);
 	chaine->content = content;
