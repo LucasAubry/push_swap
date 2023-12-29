@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 18:52:48 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/29 15:19:39 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,30 @@ size_t find_max_size(t_list *stack)
 	while (second)
 	{
 		if(second->content > max)
+		{
 			max = second->content;
-		second = second->next;
+			second = second->next;
+		}
+		else
+			second = second->next;
 	}
-	return 
-	max; // return ladresse de max
+	printf("%s, %zu", "max =", max);
+	return (max);
 }
 int find_size_stack(t_list *stack) 
 {
 	t_list *second;
 	int i;
-	
-	second = NULL;
-	second = stack;
 	i = 0;
-	while(second->next)
+
+	second = stack;
+	while(second)
 	{
 		second = second->next;
 		i++;
+		printf("\n%s, %d", "taille de stack =", i);
 	}
+	printf("%s", "oui");
 	return (i);
 }
 
@@ -76,17 +81,29 @@ int find_size_stack(t_list *stack)
 void transit_b(t_list **stack_a, t_list *stack_b)
 {
 	size_t max;
-	size_t i;
+	int i;
+	t_list *top_stack;
 	max = find_max_size(*stack_a);
 	i = find_size_stack(*stack_a);
-	while(i > 3)
+	printf("\ncaca = %d", i);
+
+	top_stack = *stack_a; //met ladresse du debut de sa dans ts
+	while ((*stack_a)->content != max)
+	{
+		*stack_a = (*stack_a)->next;
+	}
+	//push(stack_a, &stack_b, 'b');
+	*stack_a = top_stack;
+	while(i > 2)
 	{
 		if((*stack_a)->content == max)
 			*stack_a = (*stack_a)->next;
 		push(stack_a, &stack_b, 'b');
-		i--;
 		*stack_a = (*stack_a)->next;
+		i--;
 	}
+	reverse_rotate(&stack_b, 'b');
+	push(&stack_b, stack_a, 'a');
 }
 
 
@@ -96,10 +113,11 @@ void tri_a(t_list *stack_a, t_list *stack_b)
 {
 	size_t max;
 	max = find_max_size(stack_a);
+	// printf("max = %zu", stack_a->content);
 	if (stack_a->content == max)
 		rotate(&stack_a, 'a');
 	else if (stack_a->next->content == max)
 		reverse_rotate(&stack_a, 'a');
 	if (stack_a->content > stack_b->next->content)
-		swap(&stack_a, 'a');	
+		swap(&stack_a, 'a');
 }

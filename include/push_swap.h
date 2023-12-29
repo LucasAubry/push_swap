@@ -6,9 +6,12 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 18:29:26 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/29 14:07:26 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 #include "libft.h"
 #include <stdio.h>
@@ -23,3 +26,5 @@ void swap(t_list **head, char name);
 void reverse_rotate(t_list **head, char name);
 int find_size_stack(t_list *stack);
 void transit_b(t_list **stack_a, t_list *stack_b);
+
+#endif 
