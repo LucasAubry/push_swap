@@ -6,28 +6,53 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:40 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 00:47:37 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/04 13:29:34 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_rotate(t_list **head, char name)
-{
-    t_list *last;
-    t_list *current;
+// void	reverse_rotate(t_list **stack, char name)
+// {
+//     t_list *back_stack;
+//     t_list *last;
+//     t_list *stack;
+//     if (!*stack || !(*stack)->next)
+// 		    return ;
+//     back_stack = *stack;
+//     stack = back_stack;
+//     last = back_stack->next;
+//     while(last->next)
+//     {
+//         back_stack = back_stack->next;
+//         last = last->next;
+//     }
+//     stack = back_stack;
+//     stack->content = last->content;
+//     printf("rr%c\n", name);
+// }
 
-    if (!*head || !(*head)->next)
-        return;
-    last = *head;
-    current = *head;
-    while (last->next)
-    {
-        current = last;
-        last = last->next;
-    }
-    current->next = NULL;
-    last->next = *head;
-    *head = last;
-    ft_printf("rr%c\n", name);
+
+
+
+
+// juju
+
+void	reverse_rotate(t_list **stack, char name)
+{
+	t_list	*last;
+	t_list	*before_last;
+	if (!*stack || !(*stack)->next)
+		return ;
+	before_last = *stack;
+	last = before_last->next;
+	while (last->next)
+	{
+		before_last = before_last->next;
+		last = last->next;
+	}
+	before_last->next = NULL;
+	last->next = *stack;
+	*stack = last;
+	ft_printf("rr%c\n", name);
 }

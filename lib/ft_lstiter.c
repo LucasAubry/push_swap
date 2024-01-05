@@ -6,13 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:15:56 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/11 16:00:54 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/02 14:36:37 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(int))
+void	ft_lstiter(t_list *lst, void (*f)(long))
 {
 	if (!lst || !f)
 		return ;

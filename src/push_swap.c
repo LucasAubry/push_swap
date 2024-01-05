@@ -6,20 +6,23 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/29 14:08:35 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/05 16:41:48 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // fonction pour test 
-void print_stack_a(t_list *stack_a)
+
+void print_stack(t_list *stack_a, char name)
 {
-	while (stack_a->next)
+	printf("%c : ", name);
+	while (stack_a)
 	{
-		printf("%zu\n", stack_a->content);
+		printf("%ld ", stack_a->content);
 		stack_a = stack_a->next;
 	}
+	printf("\n");
 }
 
 int main(int argc, char *argv[])
@@ -33,22 +36,24 @@ int main(int argc, char *argv[])
 	stack_a = NULL;
 	while (i < argc)
 	{
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atol(argv[i])));
 		i++;
 	}
 
-/*ft_lstadd _back va metre lelemtn que lon a cree grace a lst new 
-au denrer maillon de la list chainer
-&stack_a c le nom de la list chainer*/
+	/*ft_lstadd _back va metre lelemtn que lon a cree grace a lst new 
+	au denrer maillon de la list chainer
+	&stack_a c le nom de la list chainer*/
 
-	transit_b(&stack_a, stack_b);
-	//print_stack_a(stack_a);
-	// il print pb quand ya 1 2 3 4 5 alors quil devrais print pb pb
-	// tri_a(stack_a, stack_b);
-	
+	//print_stack(stack_a, 'A');
+	//print_stack(stack_b, 'B');
+	transit_b(&stack_a, &stack_b);
+	//print_stack(stack_a, 'A');
+	//print_stack(stack_b, 'B');
 
+	tri_a(&stack_a);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
 
-
-	//find_the_closest(stack_a, stack_b);
-	//up_or_low (stack_a, stack_b);
+	printf("////////////////\n");
+	find_the_closest_A(stack_a, stack_b);
 }
