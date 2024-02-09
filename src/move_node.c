@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/31 18:03:58 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 14:44:36 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int find_the_max(t_list *stack_a)
 {
 	int max;
 
-	max = 0;
+	max = -2147483648;
 	while (stack_a)
 	{
 		if (max < stack_a->content)

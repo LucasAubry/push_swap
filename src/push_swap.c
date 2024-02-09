@@ -6,14 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/01 16:16:40 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 12:53:55 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// fonction pour test 
-
+ 
 void print_stack(t_list *stack_a, char name)
 {
 	printf("%c : ", name);
@@ -98,6 +97,7 @@ int main(int argc, char *argv[])
 	stack_b = malloc(sizeof(t_list *));	
 	*stack_a = NULL;
 	*stack_b = NULL;
+	//pour gerer les "1 4 8 7" il faut faire un split
 	while (i < argc)
 	{
 		if (ft_isdigit(argv[i]))

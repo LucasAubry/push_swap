@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/31 17:54:41 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 15:23:20 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ long find_max_size(t_list *stack)
 	t_list *second;
 	second = stack;
 
-	max = 0;
+	max = -2147483648;
 	while (second)
 	{
 		if(second->content > max)
@@ -110,14 +110,11 @@ int check_big(t_list *stack_a)
 	return 1;
 }
 
-
 void transit_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*first_b;
 	long	max;
-	int	moyen;
 
-	moyen = moyenne(*stack_a);
 	first_b = *stack_b;
 	max = find_max_size(*stack_a);
 	while (find_size_stack(*stack_a) > 3)
@@ -134,10 +131,10 @@ void transit_b(t_list **stack_a, t_list **stack_b)
 			else
 				rotate(stack_a, 'a', 0);
 		}
-		push(stack_b, stack_a, 'b');
+		if (find_size_stack(*stack_a) > 3)
+			push(stack_b, stack_a, 'b');
 	}
 }
-
 
 ///trier a pour metre le plus grand en bas
 void tri_a(t_list **head)
@@ -149,11 +146,11 @@ void tri_a(t_list **head)
 	{
 		rotate(&(*head), 'a', 0);
 	}
-	if ((*head)->next->content == max)
+	if (find_size_stack(*head) > 1 && (*head)->next->content == max)
 	{
 		reverse_rotate(&(*head), 'a', 0);
 	}
-	if ((*head)->content > (*head)->next->content)
+	if (find_size_stack(*head) > 1 && (*head)->content > (*head)->next->content)
 	{
  		swap(&(*head), 'a');
 	}
