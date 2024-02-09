@@ -14,7 +14,8 @@ FILES = push_swap \
 		instruction \
 		tools \
 		tools_2 \
-		up_down
+		up_down \
+		allfree
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))

@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 18:39:51 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 13:40:03 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ void	on_max(t_list **stack_a, t_list **stack_b);
 void	five_and_tree(t_list **stack_a, t_list **stack_b);
 int	find_the_max(t_list *stack_a);
 int	tab_len(char **tabl);
+void	clear_free(t_list ***allstack);
+void	freeall(t_list ***allstack, char **tabl);
+void	ft_freetable(char **table);
+void	opti(t_list **stack_a, t_list **stack_b);
+void	init_move(t_list **stack_a, t_list **stack_b);
 
 void print_place(t_list *stack_a, char name);
 void print_target(t_list *stack_a, char name);
