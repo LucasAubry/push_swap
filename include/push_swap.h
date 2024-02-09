@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/08 13:40:03 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 16:42:20 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	freeall(t_list ***allstack, char **tabl);
 void	ft_freetable(char **table);
 void	opti(t_list **stack_a, t_list **stack_b);
 void	init_move(t_list **stack_a, t_list **stack_b);
+void	free__after_opti(t_list ***alstak, char **arr);
 
 void print_place(t_list *stack_a, char name);
 void print_target(t_list *stack_a, char name);

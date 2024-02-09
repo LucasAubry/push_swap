@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/08 13:49:34 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 16:42:39 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,5 @@ int	main(int argc, char *argv[])
 		five_and_tree(alstak[0], alstak[1]);
 	else
 		opti(alstak[0], alstak[1]);
-	(ft_freetable(tabl), free(alstak));
+	free__after_opti(alstak, tabl);
 }
