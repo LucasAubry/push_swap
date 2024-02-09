@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/30 13:19:26 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/31 15:31:34 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void move_node(t_list **stack_a, t_list **stack_b, long place, long target_place
 	// 	rr(stack_a, stack_b, place, target_place);
 	// else if (place > size_b / 2 && target_place > size_a / 2)
 	// 	rrr(stack_a, stack_b, place, target_place);
-		// maxi_rotate(place, target_place, stack_a, stack_b);
+	// 	// maxi_rotate(place, target_place, stack_a, stack_b);
 	// else
 	simple_rotate(place, target_place, stack_a, stack_b);
 	push(stack_a, stack_b, 'a');

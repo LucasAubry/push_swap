@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/29 18:42:10 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/30 14:41:54 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void init_move(t_list **stack_a, t_list **stack_b)
 {
 	long place;
 	long target_place;
+	set_index(*stack_a);
 	transit_b(stack_a, stack_b);
 	tri_a(stack_a);
 	while (*stack_b)

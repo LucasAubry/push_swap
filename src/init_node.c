@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:21:00 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/28 14:20:03 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/31 15:42:24 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,16 @@ void get_target(t_list **stack_a, t_list **stack_b)
 	// le price c la le totale - position si c en dessou de
 	// find_size_stack / 2
 
-int set_price_a(t_list *stack_a, t_list *stack_b, int i)
+int set_price_a(t_list *stack_a, t_list *stack_b)
 {
 	int price;
 	int size;
 
 	size = find_size_stack(stack_a);
-	if(i == 1)
+	if(stack_b->target->index < size / 2)
 		price = stack_b->target->index;
 	else
-		price = stack_b->target->index - size / 2;
+		price = size - stack_b->target->index;
 	return (price);
 }
 
@@ -98,9 +98,9 @@ void set_price(t_list *stack_a, t_list *stack_b)
 	while (stack_b)
 	{
 		if (stack_b->index < size / 2)
-			stack_b->price = stack_b->index + set_price_a(stack_a, stack_b, 1);
+			stack_b->price = stack_b->index + set_price_a(stack_a, stack_b);
 		else
-			stack_b->price = size - stack_b->index + set_price_a(stack_a, stack_b, 0);
+			stack_b->price = size - stack_b->index + set_price_a(stack_a, stack_b);
 		stack_b = stack_b->next;
 	}
 }
