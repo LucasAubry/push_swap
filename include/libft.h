@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 11:07:59 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 17:50:23 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,14 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_old_list;
 
-typedef struct list 
+typedef struct list
 {
-	long content;
-	int price;
-	int index;
-	struct list	*next;
-	struct list	*target;
+	long			content;
+	int				price;
+	int				index;
+	struct list		*next;
+	struct list		*target;
 }					t_list;
-// pour metre place dans une structure pour passer la norminette;
-
 
 long				ft_atol(char *str);
 void				ft_bzero(void *s, size_t n);
@@ -84,17 +82,17 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 int					ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(long));
-t_list				*ft_lstmap(t_list *lst, long (*f)(long), void (*del)(void *));
-
+t_list				*ft_lstmap(t_list *lst, long (*f)(long),
+						void (*del)(void *));
 //ft_printf
-int		ft_p(void *adresse);
-int		ft_putchar(char c);
-int		ft_putnbr(int nb);
-int		ft_putunbr(unsigned int nb);
-int		ft_putstr(char *str);
-void	ft_puthexa_2(unsigned int nb, char *base);
-int		ft_puthexa(unsigned int nb, char *base);
-int		ft_printf(const char *format, ...);
-void	ft_putnbr_fd(int n, int fd);
+int					ft_p(void *adresse);
+int					ft_putchar(char c);
+int					ft_putnbr(int nb);
+int					ft_putunbr(unsigned int nb);
+int					ft_putstr(char *str);
+void				ft_puthexa_2(unsigned int nb, char *base);
+int					ft_puthexa(unsigned int nb, char *base);
+int					ft_printf(const char *format, ...);
+void				ft_putnbr_fd(int n, int fd);
 
 #endif

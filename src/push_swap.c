@@ -6,44 +6,11 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/08 16:42:39 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 17:53:57 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_list *stack_a, char name)
-{
-	printf("%c : ", name);
-	while (stack_a)
-	{
-		printf("%ld ", stack_a->content);
-		stack_a = stack_a->next;
-	}
-	printf("\n");
-}
-
-void	print_price(t_list *stack_a, char name)
-{
-	printf("%c : ", name);
-	while (stack_a)
-	{
-		printf("%d ", stack_a->price);
-		stack_a = stack_a->next;
-	}
-	printf("\n");
-}
-
-void	print_target(t_list *stack_a, char name)
-{
-	printf("%c : ", name);
-	while (stack_a)
-	{
-		printf("%ld ", stack_a->target->content);
-		stack_a = stack_a->next;
-	}
-	printf("\n");
-}
 
 void	init_move(t_list **stack_a, t_list **stack_b)
 {
