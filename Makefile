@@ -36,8 +36,8 @@ clean:
 
 fclean:	clean
 		rm -f $(NAME)
+		make fclean -C lib
 
 re:	fclean all
-	make re -C lib
 
 .PHONY: all clean fclean re

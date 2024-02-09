@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/10 14:35:39 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/12 15:45:40 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ typedef struct s_old_list
 	struct s_old_list	*next;
 }					t_old_list;
 
-typedef struct s_list
+typedef struct list 
 {
 	long content;
-    struct s_list	*next;
-	struct s_list	*target;
+	int price;
+	int index;
+	struct list	*next;
+	struct list	*target;
 }					t_list;
 
 long					ft_atol(char *str);
