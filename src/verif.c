@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:16:54 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 11:43:24 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/07 11:19:03 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int	dbl_nomber(t_list *stack_a)
 
 int	is_sort(t_list *stack_a)
 {
-	t_list	*before;
-
-	before = NULL;
-	before = stack_a;
+	if (stack_a == NULL)
+		return (0);
 	while (stack_a->next)
 	{
 		if (stack_a->content > stack_a->next->content)
@@ -53,10 +51,6 @@ int	verif(t_list *stack_a, int argc)
 	t_list	*head;
 
 	head = stack_a;
-	if (argc <= 2)
-		return (0);
-	if (is_sort (stack_a))
-		return (0);
 	while (stack_a)
 	{
 		if (stack_a->content > 2147483647 || stack_a->content < -2147483648)
@@ -64,6 +58,8 @@ int	verif(t_list *stack_a, int argc)
 			printf("INT Error\n");
 			return (0);
 		}
+		if (argc < 2)
+			return (0);
 		if (!dbl_nomber(stack_a))
 		{
 			stack_a = head;
@@ -72,6 +68,9 @@ int	verif(t_list *stack_a, int argc)
 		}
 		stack_a = stack_a->next;
 	}
+	stack_a = head;
+	if (is_sort (stack_a))
+		return (0);
 	stack_a = head;
 	return (1);
 }
