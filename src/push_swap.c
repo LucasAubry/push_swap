@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/07 11:22:16 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/08 10:20:12 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,29 @@ int	in_stack(int argc, char *argv[], t_list **stack_a)
 	return (1);
 }
 
+void	ft_freetable(char **table)
+{
+	int	i;
+
+	i = 0;
+	if(!table)
+		return ;
+	while(table[i])
+	{
+		free(table[i]);
+		i++;
+	}
+	free(table);
+	return;
+}
+void	freeall(t_list **stack_a, t_list **stack_b, char **tabl)
+{
+	ft_freetable(tabl);
+	ft_lstclear(stack_a, free);
+	free(stack_a);
+	ft_lstclear(stack_b, free);
+	free(stack_b);
+}
 int	main(int argc, char *argv[])
 {
 	t_list	**stack_a;
@@ -105,23 +128,54 @@ int	main(int argc, char *argv[])
 	char	**tabl;
 	int		len_tab;
 
+	stack_a = NULL;
+	stack_b = NULL;
+	tabl = NULL;
+	len_tab = argc - 1;
+	if (argc == 1)
+		return (0);
+	if	(ft_strncmp("", argv[1], 1) == 0)
+		return (0);
 	stack_a = malloc(sizeof(t_list *));
 	stack_b = malloc(sizeof(t_list *));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	len_tab = argc - 1;
 	if (len_tab == 1)
 	{
 		tabl = ft_split(argv[1], ' ');
+		if (!tabl[0])
+		{
+			ft_freetable(tabl);
+			free(stack_a);
+			free(stack_b);
+			ft_printf("Error\n");
+			return (0);
+		}
 		len_tab = tab_len(tabl);
-		in_stack(len_tab, tabl, stack_a);
+		if (!in_stack(len_tab, tabl, stack_a))
+		{
+			freeall(stack_a, stack_b, tabl);
+			return (0);
+		}
 	}
 	else if (!in_stack(len_tab, argv + 1, stack_a))
+	{
+		ft_lstclear(stack_a, free);
+		free(stack_a);
+		ft_lstclear(stack_b, free);
+		free(stack_b);
 		return (0);
+	}
 	if (!verif(*stack_a, len_tab))
+	{
+		freeall(stack_a, stack_b, tabl);
 		return (0);
+	}
 	if (find_size_stack(*stack_a) <= 3 || find_size_stack(*stack_a) <= 5)
 		five_and_tree(stack_a, stack_b);
 	else
 		opti(stack_a, stack_b);
+	ft_freetable(tabl);
+	ft_lstclear(stack_a, free);
+	ft_lstclear(stack_b, free);
 }
