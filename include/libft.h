@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/05 13:49:06 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/10 14:36:14 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
-int					ft_digit(int c);
 int					ft_isprint(int c);
 int					ft_memcmp(const void *ptr1, const void *ptr2, size_t s);
 void				*ft_memcpy(void *dst, const void *source, size_t size);
@@ -72,7 +71,7 @@ int					ft_toupper(int chr);
 void				*ft_memchr(const void *s, int c, size_t n);
 char				*ft_strtrim(char const *s1, char const *set);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
-int					ft_isdigit(int c);
+int					ft_isdigit(char *c);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 t_list				*ft_lstnew(long content);
 void				ft_lstadd_front(t_list **lst, t_list *new);

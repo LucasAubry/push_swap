@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/05 17:04:38 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/10 14:14:02 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int find_size_stack(t_list *stack);
 void transit_b(t_list **stack_a, t_list **stack_b);
 // void print_stack_a(t_list *stack_a);
 void print_stack(t_list *stack_a, char name);
+int verif(t_list *stack_a);
 
 
 #endif 
