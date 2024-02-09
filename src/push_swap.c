@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/08 17:53:57 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/09 12:00:57 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	init_move(t_list **stack_a, t_list **stack_b)
 		move_node(stack_a, stack_b, place, target_place);
 	}
 	after_sort(stack_a);
-	print_stack(*stack_a, 'A');
-	print_stack(*stack_b, 'B');
 }
 
 int	in_stack(int argc, char *argv[], t_list **stack_a)
@@ -42,7 +40,7 @@ int	in_stack(int argc, char *argv[], t_list **stack_a)
 	i = 0;
 	while (i < argc)
 	{
-		if (ft_isdigit(argv[i]))
+		if (ft_isdigit(argv[i]) && ft_strncmp(argv[i], "-", 2))
 		{
 			ft_lstadd_back(stack_a, ft_lstnew(ft_atol(argv[i])));
 			i++;
