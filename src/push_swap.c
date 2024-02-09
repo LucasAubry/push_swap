@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 17:54:20 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 18:40:19 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	print_target(t_list *stack_a, char name)
 	}
 	printf("\n");
 }
+
 void	init_move(t_list **stack_a, t_list **stack_b)
 {
 	long	place;
@@ -96,31 +97,19 @@ int	in_stack(int argc, char *argv[], t_list **stack_a)
 	}
 	return (1);
 }
-int	tab_len(char **tabl)
-{
-	int	i;
-
-	i = 0;
-	while(tabl[i] != NULL)
-		i++;
-	return (i);
-}
 
 int	main(int argc, char *argv[])
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
-	int		i;
-	char **tabl;
-	int	len_tab;
+	char	**tabl;
+	int		len_tab;
 
-	i = 0;
-	len_tab = argc - 1;
 	stack_a = malloc(sizeof(t_list *));
 	stack_b = malloc(sizeof(t_list *));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	
+	len_tab = argc - 1;
 	if (len_tab == 1)
 	{
 		tabl = ft_split(argv[1], ' ');
@@ -131,10 +120,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (!verif(*stack_a, len_tab))
 		return (0);
-	if (find_size_stack(*stack_a) <= 3)
-		sort_for_3(stack_a);
-	else if (find_size_stack(*stack_a) <= 5)
-		sort_for_5(stack_a, stack_b);
+	if (find_size_stack(*stack_a) <= 3 || find_size_stack(*stack_a) <= 5)
+		five_and_tree(stack_a, stack_b);
 	else
 		opti(stack_a, stack_b);
 }
