@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/10 14:44:42 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/12 14:47:35 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,13 @@ int main(int argc, char *argv[])
 
 	transit_b(&stack_a, &stack_b);
 	
-	 tri_a(&stack_a);
+	tri_a(&stack_a);
 	
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
 
 	printf("////////////////\n");
+
 	
-	
-	 find_the_closest_A(stack_a, stack_b);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
 	
 }

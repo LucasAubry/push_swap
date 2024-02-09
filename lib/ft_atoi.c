@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:42:34 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/02 14:24:34 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/10 16:35:11 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,12 @@ long	ft_atol(char *str)
 		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
+
+
+	
+	// is le int est supperieur au int max ou au int-max 
+	// 	is le int est supperieur au int max ou au int-max  
+	// if (str[i] == 2147483647 || str[i] == -2147483648)
+	// 	return (0);
 	return (j * n);
 }

@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:37 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/31 17:06:12 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/11 13:02:48 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ de ma list chaiee*/
 
 void push(t_list **head_a, t_list **head_b, char name)
 {
-	t_list	*first_a;
 	t_list	*first_b;
 
-	first_a = *head_a;
 	first_b = *head_b;
 	if (!first_b)
 		return ;

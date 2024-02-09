@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:44:19 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/10 14:38:24 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/10 15:09:20 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int	ft_isdigit(char *str)
 		if (!(str[i] >= 48 && str[i] <= 57))
 			return (0);
 	}
+	if (i > 17)
+		return (0);
 	return (1);
 }

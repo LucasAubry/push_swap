@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/10 14:36:14 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/12 15:37:40 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_list
 typedef struct list 
 {
 	long content;
+	int price;
+	int index;
 	struct list	*next;
 	struct list	*target;
 }					t_list;
