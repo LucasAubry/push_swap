@@ -13,6 +13,7 @@ FILES = push_swap \
 		verif \
 		init_node \
 		move_node \
+		maxi_rotate
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))

@@ -6,13 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:44 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/15 17:18:41 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/27 18:41:06 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate(t_list **head, char name)
+void rotate(t_list **head, char name, int c)
 {
 	t_list *last;
 
@@ -22,7 +22,8 @@ void rotate(t_list **head, char name)
 	last->next = *head;
 	*head = (*head)->next;
 	last->next->next = NULL;
-	ft_printf("r%c\n", name);
+	if (c == 0)
+		ft_printf("r%c\n", name);
 }
 //decale tout dune case le premier element devient le dernier
 

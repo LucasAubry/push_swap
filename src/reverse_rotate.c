@@ -6,13 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:40 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/14 18:21:21 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/27 19:45:27 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_list **stack, char name)
+void	reverse_rotate(t_list **stack, char name, int c)
 {
 	t_list	*last;
 	t_list	*before_last;
@@ -28,5 +28,6 @@ void	reverse_rotate(t_list **stack, char name)
 	before_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	ft_printf("rr%c\n", name);
+	if (c == 0)
+		ft_printf("rr%c\n", name);
 }

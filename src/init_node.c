@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:21:00 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/25 13:54:37 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/28 14:20:03 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,6 @@ void set_price(t_list *stack_a, t_list *stack_b)
 	}
 }
 
-//comparer les prix de chaque node
-
-//dernier modif
 long compare_price(t_list *stack_b)
 {
 	long lowest_price;
@@ -129,9 +126,11 @@ long compare_price(t_list *stack_b)
 			break ;
 		stack_b = stack_b->next;
 	}
-	printf("%ld", place);
 	return (place);
 }
+//comparer les prix de chaque node
+
+//dernier modif
 //  --> place de la terget
 long place_target(t_list *stack_b, t_list *stack_a, long place)
 {
@@ -156,15 +155,3 @@ long place_target(t_list *stack_b, t_list *stack_a, long place)
 	}
 	return (i);
 }
-
-// et je lexecute le moins chere
-// et je recommance jusqua ce que je nest plus rien dans b 
-
-
-
-
-// implementer les rrrrrrrrr ++ tu conais pour opti regarder git juju
-
-
-
-// et test apre soit pas con

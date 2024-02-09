@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/16 19:52:58 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/27 19:43:43 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void transit_b(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			rotate(stack_a, 'a');
+			rotate(stack_a, 'a', 0);
 		}
 	}
 }
@@ -106,11 +106,11 @@ void tri_a(t_list **head)
 	max = find_max_size(*head);
 	if ((*head)->content == max)
 	{
-		rotate(&(*head), 'a');
+		rotate(&(*head), 'a', 0);
 	}
 	if ((*head)->next->content == max)
 	{
-		reverse_rotate(&(*head), 'a');
+		reverse_rotate(&(*head), 'a', 0);
 	}
 	if ((*head)->content > (*head)->next->content)
 	{

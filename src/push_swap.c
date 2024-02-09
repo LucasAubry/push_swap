@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/25 13:48:50 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/29 18:42:10 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,41 +50,11 @@ void print_target(t_list *stack_a, char name)
 }
 
 
-int main(int argc, char *argv[])
+
+void init_move(t_list **stack_a, t_list **stack_b)
 {
 	long place;
 	long target_place;
-	int 	i;
-	t_list	**stack_a;
-	t_list	**stack_b;
-
-	i = 1;
-	stack_a = malloc(sizeof(t_list *));
-	stack_b = malloc(sizeof(t_list *));	
-	*stack_a = NULL;
-	*stack_b = NULL;
-	/*ft_lstadd _back va metre lelemtn que lon a cree grace a lst new 
-	au denrer maillon de la list chainer
-	&stack_a c le nom de la list chainer*/
-	while (i < argc)
-	{
-		if (ft_isdigit(argv[i]))
-		{
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atol(argv[i])));
-			i++;
-		}
-		else
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
-	}
-		if (argc <= 2)
-			return (0);
-		if (is_sort(*stack_a))
-			return (0);
-		if (!verif(*stack_a))
-			return (0);
 	transit_b(stack_a, stack_b);
 	tri_a(stack_a);
 	while (*stack_b)
@@ -100,4 +70,43 @@ int main(int argc, char *argv[])
 	after_sort(stack_a);
 	print_stack(*stack_a, 'A');
 	print_stack(*stack_b, 'B');
+}
+
+
+
+
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+	int 	i;
+	t_list	**stack_a;
+	t_list	**stack_b;
+
+	i = 1;
+	stack_a = malloc(sizeof(t_list *));
+	stack_b = malloc(sizeof(t_list *));	
+	*stack_a = NULL;
+	*stack_b = NULL;
+	while (i < argc)
+	{
+
+		//caractere spe a verif
+		if (ft_isdigit(argv[i]))
+		{
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atol(argv[i])));
+			i++;
+		}
+		else
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
+	}
+	if (!verif(*stack_a, argc))
+		return (0);
+	init_move(stack_a, stack_b);
 }

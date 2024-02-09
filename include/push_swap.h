@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/25 13:52:50 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/29 16:30:43 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void tri_a(t_list **stack_a);
 void find_the_closest_A(t_list *stack_a, t_list *stack_b);
 int posi_of_diff(t_list *stack_a, t_list *stack_b);
 void push (t_list **head_a, t_list **head_b, char name);
-void rotate(t_list **head, char name);
+void rotate(t_list **head, char name, int c);
 void swap(t_list **head, char name);
-void reverse_rotate(t_list **head, char name);
+void reverse_rotate(t_list **head, char name, int c);
 int find_size_stack(t_list *stack);
 void transit_b(t_list **stack_a, t_list **stack_b);
 void print_stack(t_list *stack_a, char name);
-int verif(t_list *stack_a);
+int verif(t_list *stack_a, int argc);
 void algo(t_list *stack_a, t_list *stack_b);
 void set_index(t_list *stack);
 void set_target(t_list *stack_a, t_list *stack_b);
@@ -41,9 +41,12 @@ void print_target(t_list *stack_a, char name);
 void print_stack(t_list *stack_a, char name);
 int is_sort(t_list *stack_a);
 void after_sort(t_list **stack_a);
-void last_move(t_list *stack_a);
 int set_price_a(t_list *stack_a, t_list *stack_b, int i);
-
-
+void simple_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b);
+void maxi_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b);
+void up(t_list **stack_a, t_list **stack_b, long place, char c, int x);
+void down(t_list **stack_a, t_list **stack_b, long place, char c, int x);
+void rr(t_list **stack_a, t_list **stack_b, long place, long target_place);
+void rrr(t_list **stack_a, t_list **stack_b, long place, long target_place);
 
 #endif
