@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:21:00 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/19 15:57:47 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/25 13:54:37 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,51 +77,81 @@ void get_target(t_list **stack_a, t_list **stack_b)
 	// le price c la le totale - position si c en dessou de
 	// find_size_stack / 2
 
+int set_price_a(t_list *stack_a, t_list *stack_b, int i)
+{
+	int price;
+	int size;
+
+	size = find_size_stack(stack_a);
+	if(i == 1)
+		price = stack_b->target->index;
+	else
+		price = stack_b->target->index - size / 2;
+	return (price);
+}
 
 void set_price(t_list *stack_a, t_list *stack_b)
 {
 	long size;
 
 	size = find_size_stack(stack_b);
-	(void)stack_a;
 	while (stack_b)
 	{
 		if (stack_b->index < size / 2)
-			stack_b->price = stack_b->index;
+			stack_b->price = stack_b->index + set_price_a(stack_a, stack_b, 1);
 		else
-			stack_b->price = size - stack_b->index;
+			stack_b->price = size - stack_b->index + set_price_a(stack_a, stack_b, 0);
 		stack_b = stack_b->next;
 	}
 }
 
-//comparer les prix de chaque node 
+//comparer les prix de chaque node
 
+//dernier modif
 long compare_price(t_list *stack_b)
 {
 	long lowest_price;
 	long place;
-//ya une erreur de segfault ici probable;ent par rapport au dernier
-	place = 0;
+
 	if (stack_b == NULL)
 		return (0);
 	lowest_price = stack_b->price;
+	place = stack_b->index;
+	stack_b = stack_b->next;
+	while (stack_b)
+	{
 		if (stack_b->price < lowest_price)
 		{
 			lowest_price = stack_b->price;
 			place = stack_b->index;
 		}
+		if (stack_b->next == NULL)
+			break ;
 		stack_b = stack_b->next;
+	}
+	printf("%ld", place);
 	return (place);
 }
-//  --> move
-long place_target(t_list *stack_a, long place)
+//  --> place de la terget
+long place_target(t_list *stack_b, t_list *stack_a, long place)
 {
+	t_list *head;
 	int i;
+	long target_place;
 
+	head = stack_b;
 	i = 0;
 	while (i != place)
 	{
-		stack_a = stack_a->next;
+		head = head->next;
+		i++;
+	}
+	target_place = head->target->content;
+	i = 0;
+	head = stack_a;
+	while (head->content != target_place)
+	{
+		head = head->next;
 		i++;
 	}
 	return (i);

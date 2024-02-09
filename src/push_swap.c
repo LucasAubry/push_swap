@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/22 17:26:42 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/25 13:48:50 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ int main(int argc, char *argv[])
 	tri_a(stack_a);
 	while (*stack_b)
 	{
-		print_stack(*stack_a, 'A');
-		print_stack(*stack_b, 'B');
 		set_index(*stack_a);
+		set_index(*stack_b);
 		get_target(stack_a, stack_b);
+		set_price(*stack_a, *stack_b);
 		place = compare_price(*stack_b);
-		target_place = place_target(*stack_a, (*stack_b)->target->index);
+		target_place = place_target(*stack_b, *stack_a, place);
 		move_node(stack_a, stack_b, place, target_place);
 	}
 	after_sort(stack_a);
