@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 16:27:16 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 16:41:26 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,41 +79,7 @@ void	sort_for_3(t_list **head)
 		swap(&(*head), 'a');
 }
 
-long find_place_max(t_list *stack_a)
-{
-	long	max;
-	long	place;
-	t_list *head;
-
-	place = 0;
-	head = stack_a;
-	max = find_max_size(stack_a);
-	while (head->content != max)
-	{
-		head = head->next;
-		place++;
-	}
-	return (place);
-}
-
-void on_max(t_list **stack_a, t_list **stack_b)
-{
-	long	max;
-	long	place;
-
-	place = find_place_max(*stack_a);
-	max = find_max_size(*stack_a);
-	while ((*stack_a)->content != max)
-	{
-		if (place < find_size_stack(*stack_a) / 2)
-			rotate(stack_a, 'a', 0);
-		else
-			reverse_rotate(stack_a, 'a', 0);
-	}
-	push(stack_b, stack_a, 'b');
-}
-
-void	sort_for_5(t_list **stack_a,t_list **stack_b)
+void	sort_for_5(t_list **stack_a, t_list **stack_b)
 {
 	on_max(stack_a, stack_b);
 	on_max(stack_a, stack_b);

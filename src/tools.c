@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:25:08 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 15:16:17 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 16:52:54 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,41 @@ int	moyenne(t_list *stack_a)
 	return (result / i);
 }
 
+long	find_place_max(t_list *stack_a)
+{
+	long	max;
+	long	place;
+	t_list	*head;
+
+	place = 0;
+	head = stack_a;
+	max = find_max_size(stack_a);
+	while (head->content != max)
+	{
+		head = head->next;
+		place++;
+	}
+	return (place);
+}
+
+void	on_max(t_list **stack_a, t_list **stack_b)
+{
+	long	max;
+	long	place;
+
+	place = find_place_max(*stack_a);
+	max = find_max_size(*stack_a);
+	while ((*stack_a)->content != max)
+	{
+		if (place < find_size_stack(*stack_a) / 2)
+			rotate(stack_a, 'a', 0);
+		else
+			reverse_rotate(stack_a, 'a', 0);
+	}
+	push(stack_b, stack_a, 'b');
+}
+
 // char	**split_push(char *str, char c)
 // {
-	
+// 	// ft_split();
 // }

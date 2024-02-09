@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 15:15:51 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 16:39:33 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,7 @@ void up_b(t_list **stack_b, long place, int x);
 void down_b(t_list **stack_b, long place, int x);
 void	sort_for_3(t_list **stack_a);
 void	sort_for_5(t_list **stack_a,t_list **stack_b);
+long	find_place_max(t_list *stack_a);
+void	on_max(t_list **stack_a, t_list **stack_b);
+
 #endif

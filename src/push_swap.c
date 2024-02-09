@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 15:02:43 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 17:54:20 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	opti(t_list **stack_a, t_list **stack_b)
 int	in_stack(int argc, char *argv[], t_list **stack_a)
 {
 	int	i;
-	
-	i = 1;
+
+	i = 0;
 	while (i < argc)
 	{
 		if (ft_isdigit(argv[i]))
@@ -94,34 +94,46 @@ int	in_stack(int argc, char *argv[], t_list **stack_a)
 			return (0);
 		}
 	}
-	return(1);
+	return (1);
 }
+int	tab_len(char **tabl)
+{
+	int	i;
 
-
-// gere les 3 5 10 
-
-
+	i = 0;
+	while(tabl[i] != NULL)
+		i++;
+	return (i);
+}
 
 int	main(int argc, char *argv[])
 {
-	int	i;
 	t_list	**stack_a;
 	t_list	**stack_b;
+	int		i;
+	char **tabl;
+	int	len_tab;
 
 	i = 0;
+	len_tab = argc - 1;
 	stack_a = malloc(sizeof(t_list *));
 	stack_b = malloc(sizeof(t_list *));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	// if(argv[1][i] == '"')
-	// 	split_push(argv[1], ' ');
-	if (!in_stack(argc, argv, stack_a))
-		return(0);
-	if (!verif(*stack_a, argc))
+	
+	if (len_tab == 1)
+	{
+		tabl = ft_split(argv[1], ' ');
+		len_tab = tab_len(tabl);
+		in_stack(len_tab, tabl, stack_a);
+	}
+	else if (!in_stack(len_tab, argv + 1, stack_a))
+		return (0);
+	if (!verif(*stack_a, len_tab))
 		return (0);
 	if (find_size_stack(*stack_a) <= 3)
-		sort_for_3(stack_a); // 2 ou 3 move
-	else if (find_size_stack(*stack_a) <= 5) // 12 max
+		sort_for_3(stack_a);
+	else if (find_size_stack(*stack_a) <= 5)
 		sort_for_5(stack_a, stack_b);
 	else
 		opti(stack_a, stack_b);
