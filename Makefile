@@ -10,8 +10,10 @@ FILES = push_swap \
 		reverse_rotate \
 		rotate \
 		swap \
-		algo \
-		verif
+		verif \
+		init_node \
+		move_node \
+
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))
 

@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/11 17:27:44 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/16 19:06:53 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void transit_b(t_list **stack_a, t_list **stack_b);
 void print_stack(t_list *stack_a, char name);
 int verif(t_list *stack_a);
 void algo(t_list *stack_a, t_list *stack_b);
+void set_index(t_list *stack);
+void set_target(t_list *stack_a, t_list *stack_b);
+void get_target(t_list *stack_a, t_list *stack_b);
+void set_price(t_list *stack_a, t_list *stack_b);
+long compart_price(t_list *stack_a, t_list *stack_b);
+void move_node(t_list **stack_a, t_list **stack_b, long place, long target_place);
+void set_price(t_list *stack_a, t_list *stack_b);
+void print_place(t_list *stack_a, char name);
+long place_target(t_list *stack_b, long place);
 
-
-#endif 
+#endif

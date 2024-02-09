@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/12 23:29:12 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/16 19:19:46 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,23 @@ void print_stack(t_list *stack_a, char name)
 	printf("\n");
 }
 
+
+
+void print_price(t_list *stack_a, char name)
+{
+	printf("%c : ", name);
+	while (stack_a)
+	{
+		printf("%d ", stack_a->price);
+		stack_a = stack_a->next;
+	}
+	printf("\n");
+}
+
 int main(int argc, char *argv[])
 {
+	long place;
+	long target_place;
 	int 	i;
 	t_list	**stack_a;
 	t_list	**stack_b;
@@ -49,6 +64,8 @@ int main(int argc, char *argv[])
 			return (0);
 		}
 	}
+	if (argc <= 2)
+		return (0);
 	if (!verif(*stack_a))
 		return (0);
 	print_stack(*stack_a, 'A');
@@ -69,7 +86,25 @@ int main(int argc, char *argv[])
 
 	printf("////////////////\n");
 
+	set_index(*stack_b);
+	get_target(*stack_a, *stack_b);
+	set_price(*stack_a, *stack_b);
+
+	print_price(*stack_b, 'P');
+
+	print_stack(*stack_a, 'A');
+	print_stack(*stack_b, 'B');
+	printf("\n");
 	
-	
-	
+		place = compart_price(*stack_a, *stack_b);
+		target_place = place_target(*stack_b, place);
+		move_node(stack_a, stack_b, place, target_place);
+
+	printf("\n");
+	print_stack(*stack_a, 'A');
+	print_stack(*stack_b, 'B');
+
+// delet place_target 
+// et mouve stack_a psk move que stack_b c pas fou lol 
+
 }
