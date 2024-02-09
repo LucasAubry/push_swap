@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/02 17:32:38 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:20:53 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ quand on va metre a ou b ou s ca va changer se quon print
 psk en soi les swap c le meme 
 pour le ss faut voir parcontre il faudrait desactiver le print
 a la fin de la deuxieme execution pour le sb psk 
-pour le ss on va fair sa et sb mais faut que sa qui printf ss et pas sb 
+pour le ss on va fair sa et sb mais faut que sa qui printf ss et pas sb
+
+force
 */

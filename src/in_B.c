@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/02 17:49:21 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/16 19:52:58 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ long find_max_size(t_list *stack)
 	return (max);
 }
 
-int find_size_stack(t_list *stack) 
+int find_size_stack(t_list *stack)
 {
 	t_list *second;
 	int i;
