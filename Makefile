@@ -12,7 +12,8 @@ FILES = push_swap \
 		maxi_rotate \
 		index_target \
 		instruction \
-		tools
+		tools \
+		up_down 
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))

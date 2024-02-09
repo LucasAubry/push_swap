@@ -6,46 +6,14 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 17:10:49 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 16:27:16 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	up(t_list **stack_a, t_list **stack_b, long place, char c, int x)
-{	
-	while (place > 0)
-	{
-		if (c == 'a')
-			rotate(stack_a, c, x);
-		else
-			rotate(stack_b, c, x);
-		place--;
-	}
-}
-
-void	down(t_list **stack_a, t_list **stack_b, long place, char c, int x)
-{
-	long	size_a;
-	long	size_b;
-
-	size_a = find_size_stack(*stack_a);
-	size_b = find_size_stack(*stack_b);
-	if (c == 'a')
-		while (place < size_a)
-		{
-			reverse_rotate(stack_a, c, x);
-			place++;
-		}
-	else
-		while (place < size_b)
-		{
-			reverse_rotate(stack_b, c, x);
-			place++;
-		}
-}
-
-void	move_node(t_list **stack_a, t_list **stack_b, long place, long target_place)
+void	move_node(t_list **stack_a, t_list **stack_b,
+		long place, long target_place)
 {
 	int	size_a;
 	int	size_b;
@@ -77,8 +45,8 @@ int	find_the_max(t_list *stack_a)
 	}
 	return (max);
 }
-// c pas optimiser
-void after_sort(t_list **stack_a)
+
+void	after_sort(t_list **stack_a)
 {
 	t_list	*head;
 	t_list	*top;
@@ -96,4 +64,63 @@ void after_sort(t_list **stack_a)
 		else
 			reverse_rotate(stack_a, 'a', 0);
 	}
+}
+
+void	sort_for_3(t_list **head)
+{
+	long	max;
+
+	max = find_max_size(*head);
+	if ((*head)->content == max)
+		rotate(&(*head), 'a', 0);
+	if (find_size_stack(*head) > 1 && (*head)->next->content == max)
+		reverse_rotate(&(*head), 'a', 0);
+	if (find_size_stack(*head) > 1 && (*head)->content > (*head)->next->content)
+		swap(&(*head), 'a');
+}
+
+long find_place_max(t_list *stack_a)
+{
+	long	max;
+	long	place;
+	t_list *head;
+
+	place = 0;
+	head = stack_a;
+	max = find_max_size(stack_a);
+	while (head->content != max)
+	{
+		head = head->next;
+		place++;
+	}
+	return (place);
+}
+
+void on_max(t_list **stack_a, t_list **stack_b)
+{
+	long	max;
+	long	place;
+
+	place = find_place_max(*stack_a);
+	max = find_max_size(*stack_a);
+	while ((*stack_a)->content != max)
+	{
+		if (place < find_size_stack(*stack_a) / 2)
+			rotate(stack_a, 'a', 0);
+		else
+			reverse_rotate(stack_a, 'a', 0);
+	}
+	push(stack_b, stack_a, 'b');
+}
+
+void	sort_for_5(t_list **stack_a,t_list **stack_b)
+{
+	on_max(stack_a, stack_b);
+	on_max(stack_a, stack_b);
+	sort_for_3(stack_a);
+	rotate(stack_b, 'b', 0);
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
+	rotate(stack_a, 'a', 0);
+	rotate(stack_a, 'a', 0);
 }

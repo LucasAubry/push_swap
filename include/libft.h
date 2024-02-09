@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/01 15:57:28 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 11:07:59 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct list
 	struct list	*next;
 	struct list	*target;
 }					t_list;
+// pour metre place dans une structure pour passer la norminette;
+
 
 long				ft_atol(char *str);
 void				ft_bzero(void *s, size_t n);

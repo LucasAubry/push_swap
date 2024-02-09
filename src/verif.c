@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:16:54 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 15:48:35 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 11:43:24 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ int	verif(t_list *stack_a, int argc)
 		return (0);
 	while (stack_a)
 	{
+		if (stack_a->content > 2147483647 || stack_a->content < -2147483648)
+		{
+			printf("INT Error\n");
+			return (0);
+		}
 		if (!dbl_nomber(stack_a))
 		{
 			stack_a = head;

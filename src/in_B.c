@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 16:50:31 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 14:59:34 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,4 @@ void	transit_b(t_list **stack_a, t_list **stack_b)
 		if (find_size_stack(*stack_a) > 3)
 			push(stack_b, stack_a, 'b');
 	}
-}
-
-void	tri_a(t_list **head)
-{
-	long	max;
-
-	max = find_max_size(*head);
-	if ((*head)->content == max)
-		rotate(&(*head), 'a', 0);
-	if (find_size_stack(*head) > 1 && (*head)->next->content == max)
-		reverse_rotate(&(*head), 'a', 0);
-	if (find_size_stack(*head) > 1 && (*head)->content > (*head)->next->content)
-		swap(&(*head), 'a');
 }

@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 16:31:34 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 15:15:51 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void tri_a(t_list **stack_a);
 void find_the_closest_A(t_list *stack_a, t_list *stack_b);
 int posi_of_diff(t_list *stack_a, t_list *stack_b);
 void push (t_list **head_a, t_list **head_b, char name);
@@ -44,11 +43,15 @@ void after_sort(t_list **stack_a);
 int set_price_a(t_list *stack_a, t_list *stack_b);
 void simple_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b);
 void maxi_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b);
-void up(t_list **stack_a, t_list **stack_b, long place, char c, int x);
-void down(t_list **stack_a, t_list **stack_b, long place, char c, int x);
 void rr(t_list **stack_a, t_list **stack_b, long place, long target_place);
 void rrr(t_list **stack_a, t_list **stack_b, long place, long target_place);
 void pre_sort(t_list **stack_a, t_list **stack_b);
 int	moyenne(t_list *stack_a);
 long	find_max_size(t_list *stack);
+void up_a(t_list **stack_a, long place, int x);
+void down_a(t_list **stack_a, long place, int x);
+void up_b(t_list **stack_b, long place, int x);
+void down_b(t_list **stack_b, long place, int x);
+void	sort_for_3(t_list **stack_a);
+void	sort_for_5(t_list **stack_a,t_list **stack_b);
 #endif

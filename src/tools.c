@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:25:08 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 17:43:58 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/06 15:16:17 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,8 @@ int	moyenne(t_list *stack_a)
 	}
 	return (result / i);
 }
+
+// char	**split_push(char *str, char c)
+// {
+	
+// }
