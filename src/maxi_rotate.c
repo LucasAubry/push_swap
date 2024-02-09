@@ -6,14 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 18:21:04 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/30 13:17:46 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 17:45:30 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void rr(t_list **stack_a, t_list **stack_b, long place, long target_place)
+void	rr(t_list **stack_a, t_list **stack_b, long place, long target_place)
 {
 	while (place != 0 && target_place != 0)
 	{
@@ -31,10 +30,11 @@ void rr(t_list **stack_a, t_list **stack_b, long place, long target_place)
 		}
 	}
 }
-void rrr(t_list **stack_a, t_list **stack_b, long place, long target_place)
+
+void	rrr(t_list **stack_a, t_list **stack_b, long place, long target_place)
 {
-	long size_a;
-	long size_b;
+	long	size_a;
+	long	size_b;
 
 	size_a = find_size_stack(*stack_a);
 	size_b = find_size_stack(*stack_b);
@@ -55,25 +55,11 @@ void rrr(t_list **stack_a, t_list **stack_b, long place, long target_place)
 	}
 }
 
-
-// void maxi_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b)
-// {
-// 	int size_a;
-// 	int size_b;
-
-// 	size_a = find_size_stack(*stack_a);
-// 	size_b = find_size_stack(*stack_b);
-// 	if (place < size_b / 2 && target_place < size_a / 2)
-// 		rr(stack_a, stack_b, place, target_place);
-// 	else
-// 		rrr(stack_a, stack_b, place, target_place);
-// }
-
-
-void simple_rotate(long place, long target_place, t_list **stack_a, t_list **stack_b)
+void	simple_rotate(long place, long target_place,
+		t_list **stack_a, t_list **stack_b)
 {
-	int size_a;
-	int size_b;
+	int	size_a;
+	int	size_b;
 
 	size_a = find_size_stack(*stack_a);
 	size_b = find_size_stack(*stack_b);

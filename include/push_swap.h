@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:24 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/31 15:42:54 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 16:31:34 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void down(t_list **stack_a, t_list **stack_b, long place, char c, int x);
 void rr(t_list **stack_a, t_list **stack_b, long place, long target_place);
 void rrr(t_list **stack_a, t_list **stack_b, long place, long target_place);
 void pre_sort(t_list **stack_a, t_list **stack_b);
-
+int	moyenne(t_list *stack_a);
+long	find_max_size(t_list *stack);
 #endif

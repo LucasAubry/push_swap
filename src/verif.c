@@ -6,15 +6,15 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:16:54 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/01 16:52:44 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 15:48:35 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int dbl_nomber(t_list *stack_a)
+int	dbl_nomber(t_list *stack_a)
 {
-	t_list *head;
+	t_list	*head;
 
 	head = stack_a;
 	stack_a = stack_a->next;
@@ -33,12 +33,11 @@ int dbl_nomber(t_list *stack_a)
 	return (1);
 }
 
-
-int is_sort(t_list *stack_a)
+int	is_sort(t_list *stack_a)
 {
-	t_list *before;
+	t_list	*before;
+
 	before = NULL;
-	
 	before = stack_a;
 	while (stack_a->next)
 	{
@@ -49,15 +48,15 @@ int is_sort(t_list *stack_a)
 	return (1);
 }
 
-
-int verif(t_list *stack_a, int argc)
+int	verif(t_list *stack_a, int argc)
 {
-	t_list *head;
+	t_list	*head;
+
 	head = stack_a;
 	if (argc <= 2)
 		return (0);
-	if (is_sort(stack_a))
-		return(0);
+	if (is_sort (stack_a))
+		return (0);
 	while (stack_a)
 	{
 		if (!dbl_nomber(stack_a))
@@ -71,6 +70,3 @@ int verif(t_list *stack_a, int argc)
 	stack_a = head;
 	return (1);
 }
-
-
-//"1 2 5" ca doit fonctionner 

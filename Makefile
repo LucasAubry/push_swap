@@ -6,14 +6,13 @@ LFLAGS = -Llib -lft
 
 FILES = push_swap \
 		in_B \
-		push \
-		reverse_rotate \
-		rotate \
-		swap \
 		verif \
-		init_node \
+		price \
 		move_node \
-		maxi_rotate
+		maxi_rotate \
+		index_target \
+		instruction \
+		tools
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))

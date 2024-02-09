@@ -6,14 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/02 14:44:36 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/02 17:10:49 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void up(t_list **stack_a, t_list **stack_b, long place, char c, int x)
+void	up(t_list **stack_a, t_list **stack_b, long place, char c, int x)
 {	
 	while (place > 0)
 	{
@@ -25,11 +24,10 @@ void up(t_list **stack_a, t_list **stack_b, long place, char c, int x)
 	}
 }
 
-
-void down(t_list **stack_a, t_list **stack_b, long place, char c, int x)
+void	down(t_list **stack_a, t_list **stack_b, long place, char c, int x)
 {
-	long size_a;
-	long size_b;
+	long	size_a;
+	long	size_b;
 
 	size_a = find_size_stack(*stack_a);
 	size_b = find_size_stack(*stack_b);
@@ -47,11 +45,10 @@ void down(t_list **stack_a, t_list **stack_b, long place, char c, int x)
 		}
 }
 
-
-void move_node(t_list **stack_a, t_list **stack_b, long place, long target_place)
+void	move_node(t_list **stack_a, t_list **stack_b, long place, long target_place)
 {
-	int size_a;
-	int size_b;
+	int	size_a;
+	int	size_b;
 
 	size_a = find_size_stack(*stack_a);
 	size_b = find_size_stack(*stack_b);
@@ -67,12 +64,9 @@ void move_node(t_list **stack_a, t_list **stack_b, long place, long target_place
 	push(stack_a, stack_b, 'a');
 }
 
-
-
-
-int find_the_max(t_list *stack_a)
+int	find_the_max(t_list *stack_a)
 {
-	int max;
+	int	max;
 
 	max = -2147483648;
 	while (stack_a)
@@ -86,8 +80,8 @@ int find_the_max(t_list *stack_a)
 // c pas optimiser
 void after_sort(t_list **stack_a)
 {
-	t_list *head;
-	t_list *top;
+	t_list	*head;
+	t_list	*top;
 
 	top = *stack_a;
 	head = *stack_a;
