@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:21:00 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/18 10:37:38 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/19 15:57:47 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,11 @@ long compare_price(t_list *stack_b)
 {
 	long lowest_price;
 	long place;
-
-
 //ya une erreur de segfault ici probable;ent par rapport au dernier
+	place = 0;
 	if (stack_b == NULL)
 		return (0);
 	lowest_price = stack_b->price;
-	place = 0;
 		if (stack_b->price < lowest_price)
 		{
 			lowest_price = stack_b->price;

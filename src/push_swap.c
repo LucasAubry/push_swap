@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/18 16:04:06 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/22 17:26:42 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void print_target(t_list *stack_a, char name)
 	printf("\n");
 }
 
+
 int main(int argc, char *argv[])
 {
 	long place;
@@ -62,7 +63,9 @@ int main(int argc, char *argv[])
 	stack_b = malloc(sizeof(t_list *));	
 	*stack_a = NULL;
 	*stack_b = NULL;
-	
+	/*ft_lstadd _back va metre lelemtn que lon a cree grace a lst new 
+	au denrer maillon de la list chainer
+	&stack_a c le nom de la list chainer*/
 	while (i < argc)
 	{
 		if (ft_isdigit(argv[i]))
@@ -78,34 +81,23 @@ int main(int argc, char *argv[])
 	}
 		if (argc <= 2)
 			return (0);
+		if (is_sort(*stack_a))
+			return (0);
 		if (!verif(*stack_a))
 			return (0);
-	/*ft_lstadd _back va metre lelemtn que lon a cree grace a lst new 
-	au denrer maillon de la list chainer
-	&stack_a c le nom de la list chainer*/
 	transit_b(stack_a, stack_b);
 	tri_a(stack_a);
 	while (*stack_b)
 	{
-
 		print_stack(*stack_a, 'A');
 		print_stack(*stack_b, 'B');
-
-		set_index(*stack_b);
 		set_index(*stack_a);
-		
 		get_target(stack_a, stack_b);
-		set_price(*stack_a, *stack_b);
 		place = compare_price(*stack_b);
 		target_place = place_target(*stack_a, (*stack_b)->target->index);
 		move_node(stack_a, stack_b, place, target_place);
-
 	}
+	after_sort(stack_a);
 	print_stack(*stack_a, 'A');
 	print_stack(*stack_b, 'B');
-
-
-// delet place_target 
-// et mouve stack_a psk move que stack_b c pas fou lol 
-
 }
