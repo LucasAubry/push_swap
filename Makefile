@@ -1,28 +1,40 @@
-NAME = libft.a
+CC =		cc
+CFLAGS	=	-Wall -Wextra -Werror -Iinclude
 
-SRCS = push_swap.c
+LIB = libft.a
+LFLAGS = -Llib -lft
 
-AR = ar rcs
+FILES = push_swap \
+		in_B \
+		push \
+		reverse_rotate \
+		rotate \
+		swap \
+		transac
+SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
+OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))
 
-OBJS =	${SRCS:.c=.o}
-
-CC =	cc
-
-CFLAGS	=	-Wall -Wextra -Werror #-fsanitize=address
+NAME = push_swap
 
 .c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME): ${OBJS}
-		$(AR) $(NAME) ${OBJS}
+$(NAME): $(LIB) $(OBJS)
+		$(CC) -o $@ $(OBJS) $(LFLAGS)
 
-all:	${NAME}
+$(LIB):
+	make -C lib
+
+obj/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all:	$(NAME)
 
 clean:
-		rm -f ${OBJS} ${BONUSOBJS}
+		rm -f $(OBJS) $(BONUSOBJS)
 
 fclean:	clean
-		rm -f ${NAME}
+		rm -f $(NAME)
 
 re:	fclean all
 

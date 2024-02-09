@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 23:35:50 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/06 17:18:49 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/11 16:03:27 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*current;
-
-	if (!new)
-		return ;
-	if (!*lst)
-	{
+	if (*lst)
+		ft_lstlast(*lst)->next = new;
+	else
 		*lst = new;
-		return ;
-	}
-	current = *lst;
-	while (current->next != NULL)
-	{
-		current = current->next;
-	}
-	current->next = new;
 }

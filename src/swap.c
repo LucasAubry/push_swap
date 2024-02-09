@@ -1,9 +1,21 @@
-#include "./Libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/15 13:17:47 by Laubry            #+#    #+#             */
+/*   Updated: 2023/12/17 01:04:39 by Laubry           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void swap(x_list **head, char name)
+#include "push_swap.h"
+
+void swap(t_list **head, char name)
 {
-	x_list	*first;
-	x_list	*second;
+	t_list	*first;
+	t_list	*second;
 	int temp;
 
 	temp = 0;
@@ -12,10 +24,9 @@ void swap(x_list **head, char name)
 	if (!second || !first)
 		return ;
 	temp = first->content;
-	first = second->content;
+	first = second;
 	second->content = temp;
 	ft_printf("s%c\n", name);
-// print
 }
 /*
 en gros se quon va faire c que 

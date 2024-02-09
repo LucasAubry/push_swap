@@ -6,13 +6,13 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:42:34 by Laubry            #+#    #+#             */
-/*   Updated: 2023/10/23 21:25:49 by Laubry           ###   ########.fr       */
+/*   Updated: 2023/12/11 12:29:48 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int			i;
 	int			j;

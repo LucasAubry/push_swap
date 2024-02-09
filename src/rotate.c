@@ -1,8 +1,20 @@
-#include "./Libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/15 13:17:44 by Laubry            #+#    #+#             */
+/*   Updated: 2023/12/17 05:25:47 by Laubry           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void rotate(x_list **head, char name)
+#include "push_swap.h"
+
+void rotate(t_list **head, char name)
 {
-	x_list *last;
+	t_list *last;
 
 	if(!*head)
 		return ;

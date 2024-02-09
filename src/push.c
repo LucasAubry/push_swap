@@ -1,6 +1,18 @@
-#include "./Libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/15 13:17:37 by Laubry            #+#    #+#             */
+/*   Updated: 2023/12/15 16:15:11 by Laubry           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void push (x_list **head_a, x_list **head_b, char name)
+#include "push_swap.h"
+
+void push (t_list **head_a, t_list **head_b, char name)
 {
 	if (!*head_b)
 		return ;
@@ -17,3 +29,5 @@ pour que ca print pa ou pb
 ft_lstadd_front 
 c une fonction qui cree un nouveaux maillon au debut 
 de ma list chaiee*/
+
+
