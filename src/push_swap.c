@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/31 16:06:10 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/02/01 16:16:40 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,14 @@ void init_move(t_list **stack_a, t_list **stack_b)
 
 
 
-
-
+void opti(t_list **stack_a, t_list **stack_b)
+{
+	init_move(stack_a, stack_b);
+	ft_lstclear(stack_a, &free);
+	ft_lstclear(stack_b, &free);
+	free(stack_a);
+	free(stack_b);
+}
 
 
 int main(int argc, char *argv[])
@@ -107,5 +113,5 @@ int main(int argc, char *argv[])
 	}
 	if (!verif(*stack_a, argc))
 		return (0);
-	init_move(stack_a, stack_b);
+	opti(stack_a, stack_b);
 }
