@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/11 16:03:59 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/02 14:46:33 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct s_old_list
 	struct s_old_list	*next;
 }					t_old_list;
 
-typedef struct s_list 
+typedef struct s_list
 {
-	int content;
+	long content;
     struct s_list	*next;
 	struct s_list	*target;
 }					t_list;
 
-int					ft_atoi(char *str);
+long					ft_atol(char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_putchar_fd(char c, int fd);
@@ -73,16 +73,16 @@ int					ft_toupper(int chr);
 void				*ft_memchr(const void *s, int c, size_t n);
 char				*ft_strtrim(char const *s1, char const *set);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
+int					ft_isdigit(int c);
 void				ft_lstadd_back(t_list **lst, t_list *new);
-t_list				*ft_lstnew(int content);
+t_list				*ft_lstnew(long content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstdelone(t_list *lst, void (*del)(int));
-void				ft_lstclear(t_list **lst, void (*del)(int));
-int					ft_isdigit(int c);
+void				ft_lstdelone(t_list *lst, void (*del)(long));
+void				ft_lstclear(t_list **lst, void (*del)(long));
 int					ft_lstsize(t_list *lst);
-void				ft_lstiter(t_list *lst, void (*f)(int));
-t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(void *));
+void				ft_lstiter(t_list *lst, void (*f)(long));
+t_list				*ft_lstmap(t_list *lst, long (*f)(long), void (*del)(long));
 
 
 //ft_printf

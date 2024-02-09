@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:47 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/17 01:04:39 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/02 17:32:38 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ void swap(t_list **head, char name)
 {
 	t_list	*first;
 	t_list	*second;
-	int temp;
+	int 	temp;
 
-	temp = 0;
 	first = *head;
 	second = first->next;
 	if (!second || !first)
 		return ;
 	temp = first->content;
-	first = second;
+	first->content = second->content;
 	second->content = temp;
 	ft_printf("s%c\n", name);
 }
+
 /*
 en gros se quon va faire c que 
 quand on va metre a ou b ou s ca va changer se quon print 

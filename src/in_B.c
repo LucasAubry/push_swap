@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2023/12/29 15:19:39 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/02 17:49:21 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ Est-ce que meme moitie :
 //metre tout dans b sauf 3 dont le plus grand
 
 
-size_t find_max_size(t_list *stack)
+long find_max_size(t_list *stack)
 {
-	size_t max;
+	long max;
 	t_list *second;
 	second = stack;
 
@@ -57,9 +57,10 @@ size_t find_max_size(t_list *stack)
 		else
 			second = second->next;
 	}
-	printf("%s, %zu", "max =", max);
+	// printf("%s %zu\n", "max =", max);
 	return (max);
 }
+
 int find_size_stack(t_list *stack) 
 {
 	t_list *second;
@@ -71,53 +72,48 @@ int find_size_stack(t_list *stack)
 	{
 		second = second->next;
 		i++;
-		printf("\n%s, %d", "taille de stack =", i);
 	}
-	printf("%s", "oui");
+	// printf("%s %d\n", "taille de stack =", i);
 	return (i);
 }
 
-//push dans b tout sauf le max 
-void transit_b(t_list **stack_a, t_list *stack_b)
+void transit_b(t_list **stack_a, t_list **stack_b)
 {
-	size_t max;
-	int i;
-	t_list *top_stack;
-	max = find_max_size(*stack_a);
-	i = find_size_stack(*stack_a);
-	printf("\ncaca = %d", i);
+	t_list	*first_b;
+	long	max;
 
-	top_stack = *stack_a; //met ladresse du debut de sa dans ts
-	while ((*stack_a)->content != max)
+	first_b = *stack_b;
+	max = find_max_size(*stack_a);
+	while (find_size_stack(*stack_a) > 3)
 	{
-		*stack_a = (*stack_a)->next;
+		if ((*stack_a)->content != max)
+		{
+			push(stack_b, stack_a, 'b');
+		}
+		else
+		{
+			rotate(stack_a, 'a');
+		}
 	}
-	//push(stack_a, &stack_b, 'b');
-	*stack_a = top_stack;
-	while(i > 2)
-	{
-		if((*stack_a)->content == max)
-			*stack_a = (*stack_a)->next;
-		push(stack_a, &stack_b, 'b');
-		*stack_a = (*stack_a)->next;
-		i--;
-	}
-	reverse_rotate(&stack_b, 'b');
-	push(&stack_b, stack_a, 'a');
 }
 
 
 ///trier a pour metre le plus grand en bas
-
-void tri_a(t_list *stack_a, t_list *stack_b)
+void tri_a(t_list **head)
 {
-	size_t max;
-	max = find_max_size(stack_a);
-	// printf("max = %zu", stack_a->content);
-	if (stack_a->content == max)
-		rotate(&stack_a, 'a');
-	else if (stack_a->next->content == max)
-		reverse_rotate(&stack_a, 'a');
-	if (stack_a->content > stack_b->next->content)
-		swap(&stack_a, 'a');
+	long	max;
+
+	max = find_max_size(*head);
+	if ((*head)->content == max)
+	{
+		rotate(&(*head), 'a');
+	}
+	if ((*head)->next->content == max)
+	{
+		reverse_rotate(&(*head), 'a');
+	}
+	if ((*head)->content > (*head)->next->content)
+	{
+ 		swap(&(*head), 'a');
+	}
 }

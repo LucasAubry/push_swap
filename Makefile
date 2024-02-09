@@ -10,7 +10,8 @@ FILES = push_swap \
 		reverse_rotate \
 		rotate \
 		swap \
-		transac
+		transac \
+		algo
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix obj/, $(addsuffix .o, $(FILES)))
 
@@ -37,5 +38,6 @@ fclean:	clean
 		rm -f $(NAME)
 
 re:	fclean all
+	make re -C lib
 
 .PHONY: all clean fclean re
