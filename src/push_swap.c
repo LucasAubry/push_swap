@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:14:47 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/30 14:41:54 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:06:10 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int main(int argc, char *argv[])
 	*stack_b = NULL;
 	while (i < argc)
 	{
-
-		//caractere spe a verif
 		if (ft_isdigit(argv[i]))
 		{
 			ft_lstadd_back(stack_a, ft_lstnew(ft_atol(argv[i])));

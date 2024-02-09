@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:17:25 by Laubry            #+#    #+#             */
-/*   Updated: 2024/01/27 19:43:43 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/01/31 17:54:41 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,64 @@ int find_size_stack(t_list *stack)
 	return (i);
 }
 
+int moyenne(t_list *stack_a)
+{
+	t_list *head;
+	int i;
+	int result;
+
+	result = 0;
+	i = 0;
+	head = stack_a;
+	while (head)
+	{
+		result += head->content;
+		i++;
+		head = head->next;
+	}
+	return (result / i);
+} 
+
+int check_big(t_list *stack_a)
+{
+	t_list *head;
+
+	head = stack_a;
+	while (head->next)
+	{
+		if (head->content > moyenne(stack_a))
+			return 0;
+		else
+			head = head->next;
+	}
+	return 1;
+}
+
+
 void transit_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*first_b;
 	long	max;
+	int	moyen;
 
+	moyen = moyenne(*stack_a);
 	first_b = *stack_b;
 	max = find_max_size(*stack_a);
 	while (find_size_stack(*stack_a) > 3)
 	{
-		if ((*stack_a)->content != max)
+		while (!check_big(*stack_a))
 		{
-			push(stack_b, stack_a, 'b');
+			if ((*stack_a)->content != max)
+			{
+				if ((*stack_a)->content > moyenne(*stack_a))
+					push(stack_b, stack_a, 'b');
+				else
+					rotate(stack_a, 'a', 0);
+			}
+			else
+				rotate(stack_a, 'a', 0);
 		}
-		else
-		{
-			rotate(stack_a, 'a', 0);
-		}
+		push(stack_b, stack_a, 'b');
 	}
 }
 
