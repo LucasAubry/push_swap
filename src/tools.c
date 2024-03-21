@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:25:08 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 18:31:39 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:26:54 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@ long	find_max_size(t_list *stack)
 			second = second->next;
 	}
 	return (max);
+}
+
+long	find_min_size(t_list *stack)
+{
+	long	min;
+	t_list	*second;
+	
+	second = stack;
+	min = +2147483647;
+	while (second)
+	{
+		if (second->content < min)
+		{
+			min = second->content;
+			second = second->next;
+		}
+		else
+			second = second->next;
+	}
+	return (min);
 }
 
 int	find_the_max(t_list *stack_a)

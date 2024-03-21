@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 01:41:36 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/08 17:50:23 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:36:16 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 int					ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(long));
 t_list				*ft_lstmap(t_list *lst, long (*f)(long),
-						void (*del)(void *));
+					void (*del)(void *));
+long				find_min_size(t_list *stack);
+void				on_min(t_list **stack_a, t_list **stack_b);
 //ft_printf
 int					ft_p(void *adresse);
 int					ft_putchar(char c);

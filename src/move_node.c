@@ -6,7 +6,7 @@
 /*   By: Laubry <aubrylucas.pro@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:20:56 by Laubry            #+#    #+#             */
-/*   Updated: 2024/02/06 18:35:22 by Laubry           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:03:00 by Laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,11 @@ void	sort_for_3(t_list **head)
 
 void	sort_for_5(t_list **stack_a, t_list **stack_b)
 {
-	on_max(stack_a, stack_b);
-	on_max(stack_a, stack_b);
+	on_min(stack_a, stack_b);
+	on_min(stack_a, stack_b);
 	sort_for_3(stack_a);
-	rotate(stack_b, 'b', 0);
 	push(stack_a, stack_b, 'a');
 	push(stack_a, stack_b, 'a');
-	rotate(stack_a, 'a', 0);
-	rotate(stack_a, 'a', 0);
 }
 
 void	five_and_tree(t_list **stack_a, t_list **stack_b)
