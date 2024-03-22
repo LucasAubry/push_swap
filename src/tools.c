@@ -36,7 +36,7 @@ long	find_min_size(t_list *stack)
 {
 	long	min;
 	t_list	*second;
-	
+
 	second = stack;
 	min = +2147483647;
 	while (second)
@@ -97,21 +97,4 @@ int	moyenne(t_list *stack_a)
 		head = head->next;
 	}
 	return (result / i);
-}
-
-long	find_place_max(t_list *stack_a)
-{
-	long	max;
-	long	place;
-	t_list	*head;
-
-	place = 0;
-	head = stack_a;
-	max = find_max_size(stack_a);
-	while (head->content != max)
-	{
-		head = head->next;
-		place++;
-	}
-	return (place);
 }
